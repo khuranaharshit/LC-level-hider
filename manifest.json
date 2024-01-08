@@ -1,0 +1,24 @@
+// manifest.json
+{
+    "manifest_version": 2,
+    "name": "difficulty remover",
+    "version": "1.0",
+    "description": "Hide difficulty level from Leetcode",
+    "permissions": ["activeTab", "webNavigation"],
+    "browser_action": {
+        "default_icon": {
+            "48": "hide.png"
+        },
+        "default_title": "LC difficulty hider"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://leetcode.com/problems/*"],
+            "js": ["lc_hider_content.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "icons": {
+        "48": "hide.png"
+    }
+}
