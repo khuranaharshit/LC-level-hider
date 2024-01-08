@@ -14,8 +14,6 @@ function removeDifficultyElements() {
         if (divToRemove) {
             console.log("Removing element with selector: " + selector);
             divToRemove.remove();
-        } else {
-            console.log("Element not found with selector: " + selector);
         }
     });
 }
