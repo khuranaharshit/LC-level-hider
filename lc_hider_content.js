@@ -4,12 +4,15 @@ console.log('LC Hider Content script is running.');
 // Function to remove difficulty elements
 function removeDifficultyElements() {
     var divs_to_remove = [
-        '.text-olive.dark\\:text-dark-olive.inline-block.text-sm.font-medium.capitalize.leading-\\[22px\\]',
-        '.text-yellow.dark\\:text-dark-yellow.inline-block.text-sm.font-medium.capitalize.leading-\\[22px\\]',
-        '.text-pink.dark\\:text-dark-pink.inline-block.text-sm.font-medium.capitalize.leading-\\[22px\\]'
+
+        "relative inline-flex items-center justify-center text-caption px-2 py-1 gap-1 rounded-full bg-fill-secondary text-difficulty-easy dark:text-difficulty-easy",
+        "relative inline-flex items-center justify-center text-caption px-2 py-1 gap-1 rounded-full bg-fill-secondary text-difficulty-medium dark:text-difficulty-medium",
+        "relative inline-flex items-center justify-center text-caption px-2 py-1 gap-1 rounded-full bg-fill-secondary text-difficulty-hard dark:text-difficulty-hard",
     ];
 
-    divs_to_remove.forEach(selector => {
+    divs_to_remove.forEach(originalString => {
+
+        var selector = '.' + originalString.replace(/\s+/g, '.').replace(/:/g, '\\:');
         var divToRemove = document.querySelector(selector);
         if (divToRemove) {
             console.log("Removing element with selector: " + selector);
